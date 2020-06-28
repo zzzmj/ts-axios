@@ -10,6 +10,8 @@ axios({
     a: 1,
     b: 2
   }
+}).then(res => {
+  console.log('res', res)
 })
 
 const paramsString = 'q=URLUtils.searchParams&topic=api'
@@ -19,4 +21,6 @@ axios({
   method: 'post',
   url: '/base/post',
   data: searchParams
+}).then(res => {
+  console.log('res', res)
 })

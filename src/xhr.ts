@@ -1,11 +1,14 @@
 import { AxiosRequestConfig } from './types'
 
 export function xhr(config: AxiosRequestConfig) {
-  console.log('config', config)
-  const { method = 'GET', url, data = null, params } = config
+  const { method = 'GET', url, data = null, headers } = config
   const request = new XMLHttpRequest()
 
   request.open(method.toUpperCase(), url, false)
+
+  Object.keys(headers).forEach(name => {
+    request.setRequestHeader(name, headers[name])
+  })
 
   request.send(data)
 

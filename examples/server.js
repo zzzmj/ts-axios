@@ -26,13 +26,15 @@ const router = express.Router()
 
 router.get('/simple/get', function(req, res) {
   res.json({
-    msg: `hello world`
+    msg: `hello world`,
+    body: req.query
   })
 })
 
-router.post('/simple/post', function(req, res) {
+router.post('/base/post', function(req, res) {
   res.json({
-    msg: `post success`
+    msg: `post success`,
+    body: req.body
   })
 })
 app.use(router)
